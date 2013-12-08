@@ -1,0 +1,153 @@
+<div ng-show="artist_dashboard">
+<div class="route_message" ng-show="group_message">
+
+  <div><p>{{group_message}}</p></div>
+
+</div>
+</div>
+
+
+<div class="main_wrapper">
+
+  <div class="avatar_holder">
+
+      <div class="artist_info">
+          <div ng-show="edit_artist_form" class="artist_edit_form">
+          <label>max 50 charactors</label>
+          <input type="text" ng-model="artist_data.name" >
+          <label>max 50 charactors</label>
+          <input type="text" ng-model="artist_data.category" >
+          <label>max 100 charactors</label>
+          <textarea cols="4" rows="4" ng-model="artist_data.bio" ng-max="100"></textarea>
+          <div class="btn-group"><button class="btn btn-mini btn-primary" ng-click="update_artist_profile()">update info</button><button class="btn btn-mini btn-warning" ng-click="edit_artist_form=false">close</button></div>
+          </div>
+          <div class="artist_upload_avatar" ng-show="artist_upload_avatar">
+          <br><br>
+          <label>For best results upload a large image. With a width of 1060px and height of 300px,  PNG or JPG is the preferred format.</label>
+     <!--      <input type="file"> -->
+     <input type="file" name="file" style="display:none" ng-model-instant id="avatarFile"  onchange="angular.element(this).scope().setFiles(this)" ></input>
+          <br><br>
+          <div class="btn-group"><button class="btn btn-mini btn-primary" ng-click="trigger_file_upload()">upload image</button><button class="btn btn-mini btn-warning" ng-click="artist_upload_avatar=false">close</button></div>
+          </div>
+        
+        <h3>{{artist_data.name | truncate:10}}</h3>
+        <p>{{artist_data.category | truncate:50}}</p>
+        <p>{{artist_data.bio | truncate:80}}</p>
+        
+        
+        <div ng-show="artist_dashboard" class="pull-right" style="padding-right:10px;">
+          <div class="btn-group">
+            <button class="btn btn-primary" ng-class="{true:'btn-success', false:''}[edit_artist_form]" ng-click="edit_artist_form = !edit_artist_form"><i class="icon-edit"></i> </button>
+            <button class="btn btn-primary" ng-class="{true:'btn-success', false:''}[artist_upload_avatar]" ng-click="artist_upload_avatar = !artist_upload_avatar"><i class="icon-picture"></i></button>
+          </div>
+
+        </div>
+      </div>
+      <img id="avatar_div" src="http://www.brooklynstreetart.com/theblog/wp-content/uploads/2009/09/brooklyn-street-art-rwk-veng-chris-jaime-rojo-09-0915.jpg">
+  </div>
+
+    <div class="image_gallery">
+
+    <div class="alert alert-info" ng-show="social_link_message"><i class="icon-book" style="margin-right:10px;"></i> {{social_link_message}}</div>
+
+    <ul class="thumbnails">
+      <li class="span3" ng-repeat="social in social_links" style="background:#222; padding:5px; width:150px; margin-left:65px; border-radius:5px;">
+      <span class="pull-left">
+        <!-- {{social.name}} -->
+        <img src="{{social.img_src}}">
+      </span>
+      <div class="pull-left" style="padding:10px 0 0 20px; text-align:center;">
+        <a href="" ng-click="social_tabs(social.name)">
+          <p>{{social.name}}</p>
+          <p>{{social.links.length}}</p>
+        </a>
+      </div>
+      <div style="padding:80px 0 0 5px;" ng-show="artist_dashboard">
+        <input type="url" ng-model="social_link_item" class="span2" placeholder="http://your_link.com" >
+        <a class="btn btn-mini btn-primary" href="" ng-click="edit_social_links($index, social.name, social_link_item)">save</a>
+      </div>
+      </li>
+    </ul>
+    </div>
+
+  <div class="fade_div">
+
+
+    <div ng-show="show_tab == 'Audio'">
+      <div style="text-align:right; width:960px; backround:green; margin:auto;"><h2>Audio \\\\</h2></div>
+      <div ng-show="artist_data.audio_links.length <= 0"  style="width:960px; backround:green; margin:auto;">
+          <p class="pull-right">NO links found</p>
+      </div>
+        <ul ng-repeat="links in artist_data.audio_links" style="width:960px; backround:green; margin:auto;">
+          <li style="float:right; display:inline; margin-left:10px;"><h4><a href="{{links}}" class="btn" target='_blank'><span>{{links}}</span></a> <span style="color:#999;"> | <button class="btn btn-danger btn-mini" ng-click="remove_social_link($index, artist_data.audio_links)" ng-show="artist_dashboard"> X </button></span></h4></li>
+        </ul>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div ng-show="show_tab == 'Video'">
+      <div style="text-align:right; width:960px; backround:green; margin:auto;"><h2>Video \\\\</h2></div>
+      <div ng-show="artist_data.video_links.length <= 0"  style="width:960px; backround:green; margin:auto;">
+          <p class="pull-right">NO links found</p>
+      </div>
+      <div style="text-align:left;">
+        <ul ng-repeat="links in artist_data.video_links" style="width:960px; backround:green; margin:auto;">
+          <li style="float:right; display:inline; margin-left:10px;"><h4><a href="{{links}}" class="btn" target='_blank'><span>{{links}}</span></a> <span style="color:#999;"> | <button class="btn btn-danger btn-mini" ng-click="remove_social_link($index, artist_data.video_links)" ng-show="artist_dashboard"> X </button></span></h4></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div ng-show="show_tab == 'Image'">
+      <div style="text-align:right; width:960px; backround:green; margin:auto;"><h2>Image \\\\</h2></div>
+      <div ng-show="artist_data.image_links.length <= 0"  style="width:960px; backround:green; margin:auto;">
+          <p class="pull-right">NO links found</p>
+      </div>
+      <div  style="text-align:left;">
+        <ul ng-repeat="links in artist_data.image_links" style="width:960px; backround:green; margin:auto;">
+          <li style="float:right; display:inline; margin-left:10px;"><h4><a href="{{links}}" class="btn" target='_blank'><span>{{links}}</span></a> <span style="color:#999;"> | <button class="btn btn-danger btn-mini" ng-click="remove_social_link($index, artist_data.image_links)" ng-show="artist_dashboard"> X </button></span></h4></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div ng-show="show_tab == 'Text'">
+      <div style="text-align:right; width:960px; backround:green; margin:auto;"><h2>Text \\\\</h2></div>
+      <div ng-show="artist_data.text_links.length <= 0"  style="width:960px; backround:green; margin:auto;">
+          <p class="pull-right">NO links found</p>
+      </div>
+      <div  style="text-align:left;">
+        <ul ng-repeat="links in artist_data.text_links" style="width:960px; backround:green; margin:auto;">
+          <li style="float:right; display:inline; margin-left:10px;"><h4><a href="{{links}}" class="btn" target='_blank'><span>{{links}}</span></a> <span style="color:#999;"> | <button class="btn btn-danger btn-mini" ng-click="remove_social_link($index, artist_data.text_links)" ng-show="artist_dashboard"> X </button></span></h4></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="clear:both;"></div>
+  </div>
+
+</div>
+
+ <div class="footer_content">
+<!--   <div style="text-align:center;">
+  <h3> Artitst Dashboard</h3>
+  <p> vieweable only by you</p>
+  </div>
+
+    <div class="contact_message">
+      <h3>Total Fans</h3>
+      <p>200 ppl have clicked on your images</p>
+    </div>
+
+    <div class="contact_message">
+      <h3>Total Money Eraned</h3>
+      <p>you have earned $1,500 this month</p>
+    </div> -->
+
+ <!--    <div class="contact_message">
+      <h3> are you human?</h3>
+      <p>If you like wearing t-shirts that are not seen at your local mall.  Muvedo is the right place for you.</p>
+    </div> -->
+  </div>
