@@ -301,8 +301,9 @@ font-family: 'Bowlby One SC', cursive;
 
 
 .hidden_image{
-  width:100%; 
+  width:1060px; 
   height:200px;
+  margin:auto;
   border-top:5px solid #000; 
   border-bottom:5px solid #000; 
   background: #888; 
