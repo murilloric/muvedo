@@ -9,13 +9,13 @@
         <form id="form_style" name="validate_login" ng-submit="login_member_form()">
             <input type="email" placeholder="email" ng-model="login_member.username" required>
             <input type="password" placeholder="password" ng-model="login_member.password" required>
-            <button class="btn btn-large" > Enter Muvedo</button>
+            <button class="btn btn-primary btn-large" > Enter Muvedo</button>
         </form>
     </div>
 
   <div class="enter_the_dragon" >
     <div ng-show="member_button">
-    <button class="btn btn-large btn-inverse" ng-click="member_enter()">Member's Entrance</button>
+    <button class="btn btn-large btn-inverse" ng-click="member_button=false; member_form=true;">Member's Entrance</button>
   </div>
 
   </div>
@@ -23,18 +23,10 @@
 
 
  <div class="footer_content">
-<!--     <div class="contact_message">
-      <a ng-href="{{host}}/join"><h3> What is Muvedo?</h3></a>
-      <p>muvedo is a subscription based marketplace for artist and art lovers.  for only $20 a month.</p>
-    </div> -->
 
     <div class="contact_message">
-      <a ng-href="{{host}}/join"><h3> are you an artist? create a page!</h3></a>
-      <p>Join the muvedo community to be featured and be the first to know about events.</p>
+      <h3 class="green_font"> are you an artist? create a page!</h3>
+      <p>Join the muvedo community to be featured and be the first to know about events. <a ng-href="{{host}}/join">Yes, I am!</a></p>
     </div>
 
- <!--    <div class="contact_message">
-      <a ng-href="{{host}}/join"><h3> are you human?</h3></a>
-      <p>If you like wearing t-shirts that are not seen at your local mall.  Muvedo is the right place for you.</p>
-    </div> -->
   </div>

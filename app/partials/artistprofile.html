@@ -51,14 +51,14 @@
     <div class="alert alert-info" ng-show="social_link_message"><i class="icon-book" style="margin-right:10px;"></i> {{social_link_message}}</div>
 
     <ul class="thumbnails">
-      <li class="span3" ng-repeat="social in social_links" style="background:#222; padding:5px; width:150px; margin-left:65px; border-radius:5px;">
+      <li class="span3" ng-repeat="social in social_links" style="background:#333; padding:8px; width:150px; margin-left:65px; border-radius:0px;">
       <span class="pull-left">
         <!-- {{social.name}} -->
         <img src="{{social.img_src}}">
       </span>
       <div class="pull-left" style="padding:10px 0 0 20px; text-align:center;">
-        <a href="" ng-click="social_tabs(social.name)">
-          <p>{{social.name}}</p>
+        <a href="" ng-click="social_tabs(social.name)" >
+          <p tooltip-placement="top" tooltip="{{social.description}}">{{social.name}}</p>
           <p>{{social.links.length}}</p>
         </a>
       </div>
@@ -71,7 +71,6 @@
     </div>
 
   <div class="fade_div">
-
 
     <div ng-show="show_tab == 'Audio'">
       <div style="text-align:right; width:960px; backround:green; margin:auto;"><h2>Audio \\\\</h2></div>
@@ -130,24 +129,11 @@
 
 </div>
 
- <div class="footer_content">
-<!--   <div style="text-align:center;">
-  <h3> Artitst Dashboard</h3>
-  <p> vieweable only by you</p>
+<div class="main_wrapper" ng-show="artist_dashboard">
+  <div class="general_content">
+    <h2><span class="green_font">INSTRUMENT BOARD</span> - coming soon</h2>
   </div>
+</div>
 
-    <div class="contact_message">
-      <h3>Total Fans</h3>
-      <p>200 ppl have clicked on your images</p>
-    </div>
 
-    <div class="contact_message">
-      <h3>Total Money Eraned</h3>
-      <p>you have earned $1,500 this month</p>
-    </div> -->
-
- <!--    <div class="contact_message">
-      <h3> are you human?</h3>
-      <p>If you like wearing t-shirts that are not seen at your local mall.  Muvedo is the right place for you.</p>
-    </div> -->
-  </div>
+ <div class="footer_content"></div>

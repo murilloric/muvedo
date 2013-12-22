@@ -1,101 +1,5 @@
-'use strict';
-
-var host = window.location.hostname;
-if ((host === 'localhost')) {
-  host = 'http://' + host + ':8082';
-} else {
-  host = 'http://' + host;
-}
-
-console.log(host);
 
 
-/* Controllers */
-// function accessFooterCtrl($scope, $http){
-//   console.log('trigger')
-//   $scope.access_trigger = ''
-//   // $scope.check_for_user()
-//    $http.get('/accesscontrol/checkuser').success(function(data){
-//             console.log('check_for_user_++++')
-//             console.log(data.message)
-//             alert('monkey')
-//             if (data.message === 'no'){
-//               alert(data.message)
-//                 $scope.access_trigger = 'login'
-//             }else{
-//                 $scope.access_trigger = 'logout'
-//             }
-//   })
-// }
-
-
-function memberCtrl($scope, $http) {
-  $scope.member_button = true;
-  $scope.member_form = false;
-  $scope.member_enter = function(){
-    $scope.member_button = false;
-    $scope.member_form = true;
-  }
-}
-
-function homeCtrl($scope, $http, $routeParams, $location, $timeout) {
-
-  $scope.host = '/app/index.html#';
-
-  $scope.route_message = $routeParams.route_message;
-  if ($scope.route_message === 'Thanks for joining Muvedo. Please Login!'){
-      $scope.show_route_message = true;
-  }else{
-    $scope.show_route_message = false;
-  }
-
-  $scope.trigger_route_message = function(route_message, status){
-    $scope.show_route_message = status;
-    $scope.route_message = route_message;
-    $timeout(function(){
-        $scope.trigger_route_message('ddd', false)
-    }, 3000);
-  }
-
-
-  $scope.login_member = {username:'', password:''}
-
-  $scope.login_member_form = function(){
-    console.log('login_member_form')
-    var validate_form = $scope.validate_login.$valid;
-    if (validate_form === false){
-        $scope.trigger_route_message('your input is not valid', true)
-    }else{
-        console.log('is valide ' + validate_form)
-        $http.post('/accesscontrol/loginmember', $scope.login_member).success(function(data){
-          console.log('login data')
-          var message = data.message
-          // console.log(data)
-          if (message === false){
-            $scope.trigger_route_message('Sorry Email or Password do not match', true)
-          }else{
-            // $location.path('/'+ message.path + '/' + message.username)
-            window.location = host 
-            $scope.check_for_user();
-          }
-        })
-    }
-  }
-
-// handle login button
-  $scope.member_button = true;
-  $scope.member_form = false;
-  $scope.member_enter = function(){
-    $scope.member_button = false;
-    $scope.member_form = true;
-  }
-//handler login button
-
-}
-
-function socialCtrl($scope){}
-
-function artistsCtrl($scope){}
 
 function artistProfileCtrl($scope, $timeout,  $routeParams, $http){
   $scope.check_for_user()
@@ -106,7 +10,7 @@ function artistProfileCtrl($scope, $timeout,  $routeParams, $http){
 
   $scope.show_route_message = true
 
-  $scope.group_message = 'Hey how goes it.  This green bar is our community message bar. Updates will be posted here.'
+  // $scope.group_message = 'Hey how goes it.  This green bar is our community message bar. Updates will be posted here.'
 
   $timeout(function(){
     $scope.group_message = false
@@ -150,10 +54,10 @@ function artistProfileCtrl($scope, $timeout,  $routeParams, $http){
   $scope.profile_key = 'ahBkZXZ-bXV2ZWRvZGlyZWN0choLEg1BcnRpc3RQcm9maWxlGICAgICAoOAIDA'
   $scope.social_link_item = ''
   $scope.social_links = [
-    {name:'Audio', img_src: host+'/app/img/PNG/64/row6/14.png' , links:[]},
-    {name:'Video', img_src: host+'/app/img/PNG/64/row4/4.png', links:[]},
-    {name:'Image', img_src: host+'/app/img/PNG/64/row13/12.png' , links:[]},
-    {name:'Text', img_src: host+'/app/img/PNG/64/row10/12.png', links:[]},
+    {name:'Audio', description:'Ex. SoundCloud', img_src: host+'/app/img/PNG/64/row6/14.png' , links:[]},
+    {name:'Video', description:'Ex. Youtube', img_src: host+'/app/img/PNG/64/row4/4.png', links:[]},
+    {name:'Image', description:'Ex. Instagram', img_src: host+'/app/img/PNG/64/row13/12.png' , links:[]},
+    {name:'Text', description:'Ex. Tumblr', img_src: host+'/app/img/PNG/64/row10/12.png', links:[]},
   ]
   $scope.fake_images = [
     // {src:'http://www.sweden.se/upload/Sweden_se/english/articles/SI/2007/Street_art/street_art_sweden.jpg'},
@@ -244,10 +148,10 @@ $scope.social_tabs = function(tab_name){
         console.log('artist profile postback data');
         console.log(data.message);
         $scope.social_links = [
-          {name:'Audio', img_src:host+'/app/img/PNG/64/row6/14.png' , links: data.message.audio_links},
-          {name:'Video', img_src:host+'/app/img/PNG/64/row4/4.png', links:data.message.video_links},
-          {name:'Image', img_src:host+'/app/img/PNG/64/row13/12.png' , links:data.message.image_links},
-          {name:'Text', img_src:host+'/app/img/PNG/64/row10/12.png', links:data.message.text_links},
+          {name:'Audio', description:'Ex. SoundCloud', img_src:host+'/app/img/PNG/64/row6/14.png' , links: data.message.audio_links},
+          {name:'Video', description:'Ex. Youtube', img_src:host+'/app/img/PNG/64/row4/4.png', links:data.message.video_links},
+          {name:'Image', description:'Ex. Instagram', img_src:host+'/app/img/PNG/64/row13/12.png' , links:data.message.image_links},
+          {name:'Text', description:'Ex. Tumblr', img_src:host+'/app/img/PNG/64/row10/12.png', links:data.message.text_links},
         ]
 
         $scope.artist_data = data.message;
@@ -391,30 +295,3 @@ $scope.social_tabs = function(tab_name){
   //end upload avatar
 
 }
-
-function muvedotvCtrl($scope, $routeParams){
-  $scope.artist_param = $routeParams;
-}
-
-
-function contactCtrl($scope, $http){
-  $scope.message = 'tell us about yourself...'
-  $scope.contact_form = true;
-  var data = $scope.contact = {artist_name:'', artist_bio:'', facebook:'', twitter:'', instagram:'', youtube:''}
-  $scope.contact_btn = function(){
-    $http.post('/contact', data).success(function(data){
-      console.log(data)
-      $scope.message = data;
-      $scope.contact_form = false;
-    })
-  }
-  
-}
-
-
-
-
-
-
-
-

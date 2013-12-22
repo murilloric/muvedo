@@ -2,22 +2,6 @@
 
 
 
-
-
-'use strict';
-
-var host = window.location.hostname;
-if ((host === 'localhost') || (host == '127.0.0.1')) {
-  host = 'http://' + host + ':8082';
-} else {
-  host = 'http://' + host;
-}
-
-console.log(host);
-
-
-
-
 function joinCtrl($scope, $timeout, $http, $location){
 	console.log('join');
   $scope.join_message = false
