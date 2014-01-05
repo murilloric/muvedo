@@ -7,7 +7,6 @@ function artistProfileCtrl($scope, $timeout,  $routeParams, $http){
   // $scope.SC = SC.initialize({
   //   client_id: '277c65cb151544526ccea5e92f7aedcb'
   // });
-
   $scope.show_route_message = true
 
   // $scope.group_message = 'Hey how goes it.  This green bar is our community message bar. Updates will be posted here.'
@@ -16,42 +15,11 @@ function artistProfileCtrl($scope, $timeout,  $routeParams, $http){
     $scope.group_message = false
   }, 9000)
 
-  // console.log($scope.SC)
-  // var play_song = SC.stream("/tracks/293", function(sound){
-  //   sound.play();
-  // });
-
-  // console.log(play_song)
-  // $scope.get_sound_cloud_tracks = function(){
-  // $scope.SC.get('/users', { q: 'muvedo'}, function(users) {
-  //   console.log(users);
-  //   if (users.length){
-  //     for ( var a in users){
-  //       if (users[a].username == 'muvedo'){
-  //         $scope.artist_audio_id = users[a].id
-  //         $scope.SC.get('/users/'+ users[a].id + '/tracks', {}, function(tracks){
-  //           console.log('tracks')
-  //           console.log(tracks)
-  //           if (tracks.length){
-  //             for (var t in tracks){
-  //               $scope.SC.oEmbed(tracks[t].uri, { auto_play: false }, function(oEmbed) {
-  //                 console.log('oEmbed response: ');
-  //                 console.log(oEmbed)
-  //               });
-                
-  //             }
-  //           }
-  //         })
-  //       }
-  //     }
-  //   }
-  // });
-  // }
-
-
   $scope.artist_name = $routeParams.artist_name;
   $scope.artist_data = {name:'loading name...', avatar:false, bio:'loading artist bio...', category:'loading category...' }
   $scope.profile_key = 'ahBkZXZ-bXV2ZWRvZGlyZWN0choLEg1BcnRpc3RQcm9maWxlGICAgICAoOAIDA'
+  $scope.tintup_feed = '<script async src="https://d36hc0p18k1aoc.cloudfront.net/public/js/modules/tintembed.js"></script><div class="tintup" data-id="muvedo" data-columns="3"  style="height:500px;width:960px;"><a href="http://www.tintup.com/blog/the-best-twitter-widget" style="width:118px;height:31px;background-image:url(//d33w9bm0n1egwm.cloudfront.net/assets/logos/poweredbytintsmall.png);position:absolute;bottom:10px;right: 20px;text-indent: -9999px;z-index:9;">twitter widget</a></div>'
+  $scope.social_feed_message = 'paste your tintup feed here'
   $scope.social_link_item = ''
   $scope.social_links = [
     {name:'Audio', description:'Ex. SoundCloud', img_src: host+'/app/img/PNG/64/row6/14.png' , links:[]},
@@ -83,59 +51,59 @@ $scope.show_social_link_message = function(msg){
   }, 5000)
 }
 
-$scope.edit_social_links = function(idx, media_name, social_link_item){
-  console.log('media_name ' + media_name)
-  if (!social_link_item){
-    $scope.show_social_link_message(" Oh, no you didn't. lol just kidding.   Try adding http://")
-    return
-  }
+// $scope.edit_social_links = function(idx, media_name, social_link_item){
+//   console.log('media_name ' + media_name)
+//   if (!social_link_item){
+//     $scope.show_social_link_message(" Oh, no you didn't. lol just kidding.   Try adding http://")
+//     return
+//   }
 
 
-  if (media_name == 'Audio'){
-    if ($scope.artist_data.audio_links.length >= 5){
-      $scope.show_social_link_message('Oh you are really give me a hard time! Sorry, but 5 is the max amount of links. ; ) ')
-      return
-    }else{
-      $scope.artist_data.audio_links.push(social_link_item)
-      $scope.update_artist_profile()
-    }
-  }else if (media_name == 'Video'){
-    if ($scope.artist_data.video_links.length >= 5){
-      $scope.show_social_link_message('sorry 5 is the max amount of links')
-      return
-    }else{
-      $scope.artist_data.video_links.push(social_link_item)
-      $scope.update_artist_profile()
-    }
-  }else if (media_name == 'Image'){
-    if ($scope.artist_data.image_links.length >= 5){
-      $scope.show_social_link_message('sorry 5 is the max amount of links')
-      return
-    }else{
-      $scope.artist_data.image_links.push(social_link_item)
-      $scope.update_artist_profile()
-    }
-  }else if (media_name == 'Text'){
-    if ($scope.artist_data.text_links.length >= 5){
-      $scope.show_social_link_message('sorry 5 is the max amount of links')
-      return
-    }else{
-      $scope.artist_data.text_links.push(social_link_item)
-      $scope.update_artist_profile()
-    }
-  }
-}
+//   if (media_name == 'Audio'){
+//     if ($scope.artist_data.audio_links.length >= 5){
+//       $scope.show_social_link_message('Oh you are really give me a hard time! Sorry, but 5 is the max amount of links. ; ) ')
+//       return
+//     }else{
+//       $scope.artist_data.audio_links.push(social_link_item)
+//       $scope.update_artist_profile()
+//     }
+//   }else if (media_name == 'Video'){
+//     if ($scope.artist_data.video_links.length >= 5){
+//       $scope.show_social_link_message('sorry 5 is the max amount of links')
+//       return
+//     }else{
+//       $scope.artist_data.video_links.push(social_link_item)
+//       $scope.update_artist_profile()
+//     }
+//   }else if (media_name == 'Image'){
+//     if ($scope.artist_data.image_links.length >= 5){
+//       $scope.show_social_link_message('sorry 5 is the max amount of links')
+//       return
+//     }else{
+//       $scope.artist_data.image_links.push(social_link_item)
+//       $scope.update_artist_profile()
+//     }
+//   }else if (media_name == 'Text'){
+//     if ($scope.artist_data.text_links.length >= 5){
+//       $scope.show_social_link_message('sorry 5 is the max amount of links')
+//       return
+//     }else{
+//       $scope.artist_data.text_links.push(social_link_item)
+//       $scope.update_artist_profile()
+//     }
+//   }
+// }
 
-$scope.remove_social_link = function(idx, link_obj){
-  console.log(link_obj)
-    link_obj.splice(idx, 1)
-    $scope.update_artist_profile()
-}
+// $scope.remove_social_link = function(idx, link_obj){
+//   console.log(link_obj)
+//     link_obj.splice(idx, 1)
+//     $scope.update_artist_profile()
+// }
 
-$scope.social_tabs = function(tab_name){
-  console.log(tab_name)
-  $scope.show_tab = tab_name
-}
+// $scope.social_tabs = function(tab_name){
+//   console.log(tab_name)
+//   $scope.show_tab = tab_name
+// }
 
 // end media widget
 
@@ -146,7 +114,7 @@ $scope.social_tabs = function(tab_name){
       var post_data = {crud:'review', key: $scope.artist_name, data:''}
       $http.post('/artist/crud', post_data).success(function(data){
         console.log('artist profile postback data');
-        console.log(data.message);
+        console.log(data.message.tintup_feed);
         $scope.social_links = [
           {name:'Audio', description:'Ex. SoundCloud', img_src:host+'/app/img/PNG/64/row6/14.png' , links: data.message.audio_links},
           {name:'Video', description:'Ex. Youtube', img_src:host+'/app/img/PNG/64/row4/4.png', links:data.message.video_links},
@@ -155,6 +123,9 @@ $scope.social_tabs = function(tab_name){
         ]
 
         $scope.artist_data = data.message;
+        if (data.message.tintup_feed === null){
+          $scope.artist_data.tintup_feed  =  $scope.tintup_feed
+        }
         if (data.message.avatar === 'none'){
           $('#avatar_div').attr('src', 'http://www.brooklynstreetart.com/theblog/wp-content/uploads/2009/09/brooklyn-street-art-rwk-veng-chris-jaime-rojo-09-0915.jpg')
         }else{
@@ -165,21 +136,8 @@ $scope.social_tabs = function(tab_name){
   }
 //end load profile
 
-  // $scope.check_user_name_from_url = function(){
-  //   console.log('check check_user_name_from_url')
-  //   console.log($scope.artist_name + ' _____ ' + $scope.root_artist_name)
-  //   if($scope.root_artist_name === undefined){
-      
-  //   }else{
-  //     if ($scope.artist_name === $scope.root_artist_name){
-  //         $scope.artist_dashboard = true;
-  //         $scope.user_id = $scope.root_user_id;      
-  //     }else{
-  //        $scope.artist_dashboard = false;
-  //        $scope.user_id = 0
-  //     }
 
-      $scope.load_profile();
+  $scope.load_profile();
 
 
   // $scope.check_user_name_from_url();
@@ -199,6 +157,24 @@ $scope.social_tabs = function(tab_name){
       $scope.edit_artist_form= false;
     })
   }
+
+  $scope.save_your_socialfeed = function(){
+    $scope.check_for_tintup = $scope.artist_data.tintup_feed.search('tintup')
+
+    if (!$scope.artist_data.tintup_feed){
+      $scope.social_feed_message = 'Oh no, please add your tintup feed.'
+    }else if ($scope.check_for_tintup === -1){
+      $scope.social_feed_message = 'This is not a tintup embed code. Please try again.'
+    }else{
+      if($scope.check_for_tintup > 100){
+        $scope.update_artist_profile();
+        $scope.social_feed_message = 'Your social feed has been saved.'
+      }else{
+        $scope.social_feed_message = 'This is not a tintup embed code. Please try again.'
+      }
+    }
+  }
+
   //end update artist
 
   //upload avatar

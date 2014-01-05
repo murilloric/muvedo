@@ -17,6 +17,7 @@ class ArtistProfile(ndb.Model):
   bio = ndb.TextProperty()
   category = ndb.StringProperty()
   social_links = ndb.StringProperty()
+  tintup_feed = ndb.StringProperty()
   date = ndb.DateTimeProperty(auto_now_add=True)
 
   @classmethod

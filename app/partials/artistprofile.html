@@ -28,6 +28,7 @@
      <input type="file" name="file" style="display:none" ng-model-instant id="avatarFile"  onchange="angular.element(this).scope().setFiles(this)" ></input>
           <br><br>
           <div class="btn-group"><button class="btn btn-mini btn-primary" ng-click="trigger_file_upload()">upload image</button><button class="btn btn-mini btn-warning" ng-click="artist_upload_avatar=false">close</button></div>
+
           </div>
         
         <h3>{{artist_data.name | truncate:10}}</h3>
@@ -47,13 +48,13 @@
   </div>
 
     <div class="image_gallery">
-
     <div class="alert alert-info" ng-show="social_link_message"><i class="icon-book" style="margin-right:10px;"></i> {{social_link_message}}</div>
 
-    <ul class="thumbnails">
+    <div ng-bind-html-unsafe="artist_data.tintup_feed"></div>
+
+<!--     <ul class="thumbnails">
       <li class="span3" ng-repeat="social in social_links" style="background:#333; padding:8px; width:150px; margin-left:65px; border-radius:0px;">
       <span class="pull-left">
-        <!-- {{social.name}} -->
         <img src="{{social.img_src}}">
       </span>
       <div class="pull-left" style="padding:10px 0 0 20px; text-align:center;">
@@ -67,7 +68,7 @@
         <a class="btn btn-mini btn-primary" href="" ng-click="edit_social_links($index, social.name, social_link_item)">save</a>
       </div>
       </li>
-    </ul>
+    </ul> -->
     </div>
 
   <div class="fade_div">
@@ -131,7 +132,13 @@
 
 <div class="main_wrapper" ng-show="artist_dashboard">
   <div class="general_content">
-    <h2><span class="green_font">INSTRUMENT BOARD</span> - coming soon</h2>
+    <h2><span class="green_font">SOCIAL FEED</span> - {{social_feed_message}}</h2>
+    <p>To add your social feed. You first need to create a <a ng-href="http://www.tintup.com/" target="_blank">tintup account</a>, copy the embed code and paste it here.</p>
+    <form>
+      <textarea ng-model="artist_data.tintup_feed" style="width:1000px; height:82px;"> </textarea>
+      <button class="btn btn-primary" ng-click="save_your_socialfeed()">save your social feed</button>
+    </form>
+
   </div>
 </div>
 

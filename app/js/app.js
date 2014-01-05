@@ -24,12 +24,14 @@ muvedoApp.run(function($rootScope, $http, $location, $timeout){
 
         $rootScope.access_trigger;
         $rootScope.artist_dashboard = false
+        $rootScope.hide_non_user_tools = false
         $http.get('/accesscontrol/checkuser').success(function(data){
             if (data.message === 'no'){
                 $rootScope.access_trigger = 'login'
                 $('#access_trigger_a').attr('href', '/')
                 $rootScope.profile_url = host + '/'
             }else{
+                $rootScope.hide_non_user_tools = true
                 if (artist_name === data.message.user_name){
                     $rootScope.artist_dashboard = true
                 }

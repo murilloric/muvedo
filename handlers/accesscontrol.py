@@ -269,6 +269,16 @@ class LogoutMemberhandler(BaseHandler):
     self.auth.unset_session()
     self.redirect('/')
 
+class RedirectUser(BaseHandler):
+  def get(self):
+    is_user = self.user
+    if is_user:
+      self.redirect('/app/index.html#/artist/'+ is_user.user_name)
+    else:
+      self.redirect('/')
+
+
+
 class AuthenticatedHandler(BaseHandler):
   @user_required
   def get(self):

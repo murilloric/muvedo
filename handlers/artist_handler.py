@@ -35,6 +35,7 @@ class BaseHandler(webapp2.RequestHandler):
 		data = data
 		add = artist_db.ArtistProfile(
 			name = data['name'],
+			tintup_feed = data['tintup_feed'],
 			avatar = data['avatar'],
 			bio = data['bio'],
 			category = data['category']
@@ -51,6 +52,7 @@ class BaseHandler(webapp2.RequestHandler):
 		update_entity = self.get_entity(key)
 		logging.info(update_entity)
 		update_entity.name  = data['name']
+		update_entity.tintup_feed = data['tintup_feed']
 		update_entity.avatar = data['avatar']
 		update_entity.bio = data['bio']
 		update_entity.category = data['category']
@@ -67,7 +69,7 @@ class BaseHandler(webapp2.RequestHandler):
 	def review_data(self, key):
 		q = self.review_entity(key)
 		logging.info(q)
-		obj = dict(name = q['entity'].name, avatar = q['entity'].avatar, bio = q['entity'].bio, category = q['entity'].category, 
+		obj = dict(name = q['entity'].name, tintup_feed = q['entity'].tintup_feed, avatar = q['entity'].avatar, bio = q['entity'].bio, category = q['entity'].category, 
 			audio_links = q['social_links'].audio_links,
 			video_links = q['social_links'].video_links,
 			image_links = q['social_links'].image_links,

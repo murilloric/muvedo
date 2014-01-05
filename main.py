@@ -17,16 +17,20 @@
 import logging
 import webapp2
 import json
-from models import model
+from models import model, artist_db
 from handlers import accesscontrol, artist_handler , mediabrain
 
 class MainHandler(webapp2.RequestHandler):
-  def get(self):
-    is_user = accesscontrol.BaseHandler().user
-    if is_user:
-      self.redirect('/app/index.html#/artist/'+ is_user.user_name)
+  def get(self, *args, **kwargs):
+    route = self.request.path.split('/')[1]
+    if route:
+      qry = artist_db.ArtistProfile.query(artist_db.ArtistProfile.user_name == route).get()
+      if qry:
+        self.redirect('/app/index.html#/artist/'+ qry.user_name)
+      else:
+        self.redirect('/app/index.html#/home/')
     else:
-      self.redirect('/app/index.html#/')
+      self.redirect('/app/index.html#/home/')
 
 class ContactHandler(webapp2.RequestHandler):
 	def post(self):
@@ -47,18 +51,18 @@ config = {
     'user_attributes': ['name']
   },
   'webapp2_extras.sessions': {
-    'secret_key': 'YOUR_SECRET_KEY'
+    'secret_key': 'muvedo-is-art-09-2007'
   }
 }
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
     ('/contact', ContactHandler),
     #access control
     ('/accesscontrol/join', accesscontrol.JoinHandler),
     ('/accesscontrol/loginmember', accesscontrol.LoginMemberHandler),
     ('/accesscontrol/logoutmember', accesscontrol.LogoutMemberhandler),
     ('/accesscontrol/checkuser', accesscontrol.CheckUserHandler),
+    ('/accesscontrol/redirectuser', accesscontrol.RedirectUser),
     #end access controll
 
     #artist core
@@ -69,6 +73,7 @@ app = webapp2.WSGIApplication([
     ('/media/getuploadurl', mediabrain.MediaUrl),
     ('/media/upload', mediabrain.MediaUpload),
     (r'/media/cdn/(.*)', mediabrain.MediaCDN),
-    ('/media/deletefile', mediabrain.MediaDelete)
+    ('/media/deletefile', mediabrain.MediaDelete),
     # end media brain
+    (r'/(.*)', MainHandler),
 ], debug=True, config=config)

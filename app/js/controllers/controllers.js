@@ -56,7 +56,7 @@ function homeCtrl($scope, $http, $routeParams, $location, $timeout) {
             $scope.trigger_route_message('Sorry Email or Password do not match', true)
           }else{
             // $location.path('/'+ message.path + '/' + message.username)
-            window.location = host 
+            window.location = host + '/accesscontrol/redirectuser' 
             $scope.check_for_user();
           }
         })
