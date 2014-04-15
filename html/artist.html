@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="demo-1 no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="demo-1 no-js" ng-app="muvedoApp"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -30,15 +30,19 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->        
     </head>
-    <body class="boxed">
+    <body class="boxed" ng-controller="artistProfileCtrl">
     <!--<div id="loader-overlay"></div>--> 
     <header>
         <div id="top-bar"></div>
         <div id="profile-wrap" class="text-center">
             <div class="porfile-img">
-                <img src="images/author_img.jpg" alt="">    
+                <img src="/static/theme/images/author_img.jpg" alt="">    
                 <div class="profile-name">
-                    <h2>I'm John Doe<span>front end designer & Developer</span></h2>
+                    <h2><a href="" ng-click="edit_test(true)" class="fa fa-edit" ng-if="edit_mode"></a> I'm {{artist_name}}<span>front end designer & Developer</span></h2>
+                    <span ng-if="edit_name"> 
+                      <input type="text">
+                      <button ng-click="edit_test(false)">close</button>
+                    </span>
                 </div>
                 
             </div>
@@ -62,7 +66,7 @@
                                                 <i class="fa fa-user"></i>
                                                 </div>
                                                 <div class="head-text">
-                                                    <h1>About Me</h1>
+                                                    <h1><a href="" class="fa fa-edit" ng-if="edit_mode"></a> About Me</h1>
                                                     <h4>I'm John Doe, a Web Designer living and working in Texas, and this is my space on the interwebs. 
                                                     I love to design clean and functional websites for my clients. </h4>
                                                 </div>
@@ -81,176 +85,8 @@
                                  
                                 </div>
                                 <!-- Profile Page End -->
-                                
-                                <!-- Education Page -->
-                                <div>
-                                    <h2 class="title visible-xs hidden-xs">Events</h2>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="head-wrap">
-                                              <div class="icon-head">
-                                                <i class="fa fa-magic"></i>
-                                                </div>
-                                                <div class="head-text">
-                                                    <h1>My Education</h1>
-                                                    <h4>Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                      <div class="col-sm-6">
-                                          <div class="experience-wrap">
-                                                <div class="date-wrap">
-                                                    Mar,2010
-                                                </div>
-                                                <h3>Master Degree of Design</h3>
-                                                <h4>University of Design</h4>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                          <div class="experience-wrap">
-                                                <div class="date-wrap">
-                                                    Mar,2010
-                                                </div>
-                                                <h3>Master Degree of Design</h3>
-                                                <h4>University of Design</h4>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                      <div class="col-sm-6">
-                                          <div class="experience-wrap">
-                                                <div class="date-wrap">
-                                                    Mar,2010
-                                                </div>
-                                                <h3>Master Degree of Design</h3>
-                                                <h4>University of Design</h4>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                          <div class="experience-wrap">
-                                                <div class="date-wrap">
-                                                    Mar,2010
-                                                </div>
-                                                <h3>Master Degree of Design</h3>
-                                                <h4>University of Design</h4>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Education Page End -->
-                                
-              
-                                
-                                <!-- Contact Page -->
-                                <div>
-                                    <h2 class="title visible-xs hidden-xs">Edit Profile</h2>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="head-wrap">
-                                              <div class="icon-head">
-                                                <i class="fa fa-envelope"></i>
-                                                </div>
-                                                <div class="head-text">
-                                                    <h1>Contact Me</h1>
-                                                    <h4>Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                          <h3>Photostream</h3>
-                                  <div class="flickr-stream"><ul></ul></div>                                          
-                                        </div>
-                                      <div class="col-sm-3">
-                                          <h3>Office Info</h3>
-                                          <div class="contact-info">
-                                                <ul class="unstyled">
-                                                    <li>
-                                                        <span class="pull-left img-circle"><i class="fa fa-map-marker"></i></span>
-                                                        <div class="info-text">
-                                                            <address>
-                                                                <strong>John Doe, Inc.</strong><br>
-                                                                795 Folsom Ave, Suite 600<br>
-                                                                San Francisco, CA 94107<br>
-                                                                <abbr title="Phone">P:</abbr> (123) 456-7890
-                                                            </address>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="img-circle"><i class="fa fa-envelope-o"></i></span> <a href="#">support@johndoe.com</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="img-circle"><i class="fa fa-globe"></i></span> <a href="#">www.johndoe.com</a>
-                                                    </li>
-                                                    <li>
-                                                        <span class="pull-left img-circle"><i class="fa fa-clock-o"></i></span>
-                                                        <div class="info-text">
-                                                            <address>
-                                                                <strong>Business Hours</strong><br>
-                                                                Monday - Friday <br>08:00 - 16:00<br>
-                                                                Saturday &mdash; Closed<br>
-                                                                Sunday &mdash; Closed
-                                                            </address>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                          <h3>Say Hello</h3>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div id="sucessmessage"> </div>
-                                                </div>
-                                                <form novalidate="novalidate" id="contact_form" method="post" action="#">
-                                                    <div class="col-md-6">
-                                                        <label>Name</label>
-                                                        <input type="text" class="form-control" id="name" name="name">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label>Email</label>
-                                                        <input type="text" class="form-control" id="email" name="email">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label>Message</label>
-                                                        <textarea class="form-control" id="comment" name="comment"></textarea>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn send-btn">Send <i class="fa fa-check"></i></button>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                          <div class="divider-1">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                            <div class="twitter-wrap text-center">
-                                                <span class="twitter-bird"><i class="fa fa-twitter fa-2x"></i></span>
-                                                <div class="tweet-stream info-text"></div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Contact Page End -->
+                        
+        
                             </div>
                         </div>
                   </div>
