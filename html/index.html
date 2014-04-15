@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="demo-1 no-js" ng-app="muvedoApp"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>muvedo - Art. Revolution. LifeStyle.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- Base Stylesheet -->
+    <link rel="stylesheet" href="/static/theme/theme_css/base.css">
+    <link rel="stylesheet" class="alt" href="/static/theme/theme_css/theme-red.css">
+
+
+    <script src="/static/theme/theme_js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->        
+        </head>
+        <body class="boxed" ng-controller="homeCtrl">
+            <!--<div id="loader-overlay"></div>--> 
+            <header>
+                <div id="top-bar"></div>
+                <div id="profile-wrap" class="text-center">
+                    <div class="porfile-img">
+                       <!--  <img src="/static/theme/images/author_img.jpg" alt="">   -->  
+                       <div class="profile-name">
+                        <h2>MUVEDO \\\\<span>Art. Revolution. LifeStyle.</span></h2>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <div id="main-wrapper">
+            <!--   <div id="nav-bar"></div> -->
+            <div id="cotent-wrap">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                                
+                                <!-- Portfolio Page -->
+                                <div>
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="head-wrap">
+                                          <div class="icon-head">
+                                            <i class="fa fa-bullhorn"></i>
+                                        </div>
+                                        <div class="head-text">
+                                            <h1>Welcome to Muvedo</h1>
+                                            <h4>Muvedo is a multimedia artist network striving to unify artists as a community.</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div style="text-align:center;">
+                                    <h1>Muvedo's artist community.</h1>
+                                    <div class="resume-btn">
+                                        <a href="#" ng-click="create_form = !create_form; login_form = false;"><i class="fa fa-user"></i> Create an artist profile</a>
+                                    </div>
+                                    <div class="resume-btn">
+                                        <a href="#" ng-click="login_form = !login_form; create_form = false"><i class="fa fa-sign-in"></i> Login to your artist profile </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-md-offset-3" style="margin-top:20px;" ng-show="create_form">
+                                    <h2>Create your account</h2>
+                                    <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <!-- <label>Artist Name</label> -->
+                                        <input type="text" class="form-control" placeholder="Artist Name" ng-model="join_data.name" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <!--     <label>Login ID</label> -->
+                                        <input type="email" class="form-control" placeholder="Email" ng-model="join_data.email" required>
+                                    </div>
+                                    <div class="form-group">
+                                      <!--   <label>Password</label> -->
+                                        <input type="password" class="form-control" placeholder="Password" ng-model="join_data.password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-default" ng-click="join_form()">Create</button>
+                                    </form>
+                                </div>
+
+
+
+
+                                <div class="col-md-7 col-md-offset-3" style="margin-top:20px;" ng-show="login_form">
+                                    <h2>Log in to your account</h2>
+                                    <h3 ng-show="login_message" class="text-info">{{login_message}}</h3>
+                                    <form class="form-inline" role="form" name="validate_login" ng-submit="login_member_form()">
+                                      <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                        <input type="email" class="form-control"  placeholder="Enter email" ng-model="login_member.username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" ng-model="login_member.password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Log in</button>
+                                    </form>
+                                </div>
+
+
+                      </div>
+                  </di>
+
+
+
+
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="divider-1">&nbsp;</div>
+                      </div>
+                  </div>
+
+
+
+
+                  <div class="row">
+                      <div class="col-sm-12">
+                        <div style="text-align:center;">
+                            <h2>Hashtag muvedo next time you post to your social network. Your post will appear here. Thanks!</h2>
+                        </div>
+                        <!--   <section id="grid" class="grid clearfix">
+                           <script async src="https://d36hc0p18k1aoc.cloudfront.net/public/js/modules/tintembed.js"></script><div class="tintup" data-id="muvedo" data-columns="3"  style="height:800px;width:100%;"><a href="http://www.tintup.com/blog/the-best-youtube-widget" style="width:118px;height:31px;background-image:url(//d33w9bm0n1egwm.cloudfront.net/assets/logos/poweredbytintsmall.png);position:absolute;bottom:10px;right: 20px;text-indent: -9999px;z-index:9;">youtube on website</a></div>
+                       </section> -->
+                   </div>
+               </div>
+           </div>
+           <!-- Portfolio Page End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Footer -->
+            <footer id="contact">
+              <div class="social_icons text-center">
+               <ul>
+                <li><a href="https://twitter.com/muvedo" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/muvedo" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <!--   <li><a href="#" data-toggle="tooltip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li> -->
+                <!--         <li><a href="#" data-toggle="tooltip" title="Dribble"><i class="fa fa-dribbble"></i></a></li> -->
+                <li><a href="http://www.youtube.com/user/muvedo" data-toggle="tooltip" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+<!--                 <li><a href="#" data-toggle="tooltip" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+    <li><a href="#" data-toggle="tooltip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li> -->
+</ul>
+</div>
+<div class="container">
+    <div class="row">                    
+        <div class="col-md-12 text-center">
+           Copyright © 2014 By Muvedo. All rights reserved. 
+       </div>                    
+   </div>
+</div>
+</footer>
+<!-- End -->
+
+<div id="back-top" style="display: block;">
+    <a href="#top" class="img-circle">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+</div>
+
+
+<!-- JQuery Plugin -->
+<script type='text/javascript' src="/static/theme/theme_js/jquery.js"></script> 
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.js"></script>
+<script type="text/javascript" src="/static/theme/theme_js/jquery.cookie.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/snap.svg-min.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/jquery.fancybox.js?v=2.1.5"></script>
+<script type='text/javascript' src="/static/theme/theme_js/bootstrap.min.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/jquery.easing.1.3.js"></script> 
+<script type='text/javascript' src="/static/theme/theme_js/jquery.touchSwipe.min.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/jquery.appear.min.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/jquery.validate.min.js"></script>
+<script type='text/javascript' src="/static/theme/theme_js/jquery.liquid-slider.js"></script>
+
+<script type='text/javascript' src="/static/theme/theme_js/jflickrfeed.min.js"></script>
+
+<script type='text/javascript' src="static/lib/bootstrap-ui/ui-bootstrap-tpls-0.1.0-SNAPSHOT.min.js"></script>
+<script type='text/javascript' src="static/lib/angular_ui/js/angular-ui.min.js"></script>
+<script type='text/javascript' src="static/js/app.js"></script>
+<script type='text/javascript' src="static/js/services/services.js"></script>
+<script type='text/javascript' src="static/js/controllers/controllers.js"></script>
+<script type='text/javascript' src="static/js/controllers/artists.js"></script>
+<script type='text/javascript' src="static/js/controllers/events.js"></script>
+<script type='text/javascript' src="static/js/controllers/join.js"></script>
+<script type='text/javascript' src="static/js/filters/filters.js"></script>
+<script type='text/javascript' src="static/js/directives/directives.js"></script>
+
+
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
+<script>
+(function() {
+
+    function init() {
+      var speed = 300,
+      easing = mina.backout;
+
+      [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+        var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+        pathConfig = {
+            from : path.attr( 'd' ),
+            to : el.getAttribute( 'data-path-hover' )
+        };
+
+        el.addEventListener( 'mouseenter', function() {
+          path.animate( { 'path' : pathConfig.to }, speed, easing );
+      } );
+
+        el.addEventListener( 'mouseleave', function() {
+          path.animate( { 'path' : pathConfig.from }, speed, easing );
+      } );
+    } );
+  }
+
+  init();
+
+})();
+</script>
+<script type='text/javascript' src="/static/theme/theme_js/theme-custom.js"></script>
+<script>
+var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src='//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+</body>
+</html>

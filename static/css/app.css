@@ -1,0 +1,378 @@
+/* app css stylesheet */
+
+@import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+@import url(http://fonts.googleapis.com/css?family=Faster+One);
+@import url(http://fonts.googleapis.com/css?family=Signika+Negative:700);
+@import url(http://fonts.googleapis.com/css?family=Bowlby+One+SC);
+@import url(http://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+
+
+/*font-family: 'Signika Negative', sans-serif;
+  font-family: 'Faster One', cursive;
+  font-family: 'Bowlby One SC', cursive;
+*/
+
+
+body, html{
+/*  background:#222;*/
+/*  height:100%;*/
+  /*background: url('../img/gplaypattern/gplaypattern.png');*/
+/*background: url('../img/white_carbon/white_carbon.png');*/
+background: url('../img/dark_fish_skin/dark_fish_skin.png');
+
+}
+
+h1{
+  color:#fff;
+}
+
+h3{
+  font-family: 'Bowlby One SC', cursive;
+}
+
+p{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+}
+
+
+
+
+.green_font{
+  color:green;
+}
+.route_message{
+   width:100%; 
+   height:50px;
+   background:green;
+}
+
+.route_message div{
+  margin:auto;
+  width:1060px;
+  text-align:center;
+  padding-top:15px;
+}
+
+.member_form{
+  width:400px;
+  height:130px;
+  margin: auto;
+  padding:20px 0 50px 40px;
+  background:green;
+}
+
+.member_form button{
+  width:365px;
+  height:40px;
+  border-radius: 0px;
+  background: #000;
+}
+
+
+.main_content{
+  width:1060px;
+  margin: 0 auto; 
+  padding-top: 20px;
+  background:#ccc; 
+  height:120px;
+}
+
+.footer_content{
+  width: 1060px;
+  min-height:100%;
+  margin: auto;
+  padding: 50px 0 50px 0;
+  background: #ccc;
+}
+
+
+.artist_feed{
+  width:900px;
+  height:150px;
+  margin-top:50px;
+  padding: 20px 30px 0 45px;
+  text-align: left;
+  background: #222;
+  color:#555;
+}
+
+
+.contact_message{
+  width:900px;
+  height:120px;
+  margin-top:50px;
+  padding: 10px 30px 0 45px;
+  text-align: left;
+  background: #222;
+  color:#555;
+}
+
+.contact_message p{
+  font-family: sans-serif;
+}
+
+.enter_the_dragon{
+  width:1060px;
+  height:200px;
+  margin: auto;
+  padding-top:80px;
+/*  background: rgba(0, 0, 0, 0.7);*/
+  text-align: center;
+}
+
+.enter_the_dragon button{
+  width:300px;
+  height: 60px;
+  border-radius: 0px;
+  background: green;
+}
+
+
+.welcome_message{
+  width:980px;
+/*  background: yellow;*/
+  float:right;
+  padding-right: 90px;
+  font-family: 'Bowlby One SC', cursive;
+  text-align: right;
+}
+
+.welcome_message  p{
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 20px;
+}
+
+
+
+
+#form_style input{
+  width: 350px;
+  height:40px;
+  font-size: 40px;
+  border-radius: 0px;
+}
+
+#form_style ::-webkit-input-placeholder {
+   color: #222;
+   font-size:40px;
+   padding-top:10px;
+   border-radius: 0px;
+}
+
+#form_style :-moz-placeholder { /* Firefox 18- */
+   color: #222;
+   font-size:40px;
+   padding-top:10px;
+   border-radius: 0px;
+}
+
+#form_style ::-moz-placeholder {  /* Firefox 19+ */
+   color: #222;
+   font-size:40px;
+   padding-top:10px; 
+   border-radius: 0px; 
+}
+
+#form_style :-ms-input-placeholder {  
+   color: #222;
+   font-size:40px;
+   padding-top:10px;
+   border-radius: 0px;
+}
+
+
+
+.main_wrapper{
+  background: url('../img/white_carbon/white_carbon.png');
+  width:1060px;
+  margin: 0 auto; 
+  height:100%;
+}
+
+.avatar_holder{
+  width:1060px;
+  height:300px;
+  overflow: hidden;
+  border-top: 2px solid #000;
+  border-bottom:  2px solid #000;
+}
+
+.artist_info{
+  position: absolute;
+  width:1040px;
+  height:160px;
+  padding:140px 0 0 20px;
+  background-color: rgba(2, 2, 2, 0.4);
+  color: white;
+
+}
+
+.general_content{
+  background: #999;
+  padding:20px;
+}
+
+.image_gallery{
+  background:#222; 
+  -webkit-box-shadow: inset 1px -1px 100px 11px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 1px -1px 100px 11px rgba(0,0,0,0.75);
+  box-shadow: inset 1px -1px 100px 11px rgba(0,0,0,0.75); 
+  padding:45px 10px 10px 10px; 
+  border-left:50px solid #222; 
+  border-right:50px solid #222; 
+  border-bottom:2px solid #222;
+}
+
+.lg_content{
+  width: 1020px;
+  padding:20px;
+  background:#999;
+}
+
+.footer_container{
+  background: url('../img/dark_fish_skin/dark_fish_skin.png')
+}
+
+.headline_bold{
+font-family: 'Bowlby One SC', cursive;
+}
+
+
+
+.grayfont{
+  color:#999;
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+.headline{
+  margin-left: 30px;
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+
+#featured_artist li{
+  list-style: none;
+  float:left;
+  margin-right:20px;
+}
+
+
+.fade-in
+{
+    opacity: 0.5;
+    transition: 0.5s Ease;   
+}
+.fade-in:hover
+{
+    opacity: 1;
+}
+
+.feat_image {
+    width: 240px;
+    height: 240px;
+    position: relative;
+}
+.footerBar {
+    background-color: #000;
+    position: absolute;
+    padding:10px;
+    bottom: 0px;
+    overflow: hidden;
+    width: 220px;
+    
+}
+.feat_image:hover .footerBar {
+    display: block;
+    height:100px;
+    width:220px;
+}
+
+.change_background {
+  background: green;
+}
+
+
+
+
+.hidden_image{
+  width:1060px; 
+  height:200px;
+  margin:auto;
+  border-top:5px solid #000; 
+  border-bottom:5px solid #000; 
+  background: #888; 
+  background-size: cover;
+}
+
+
+.fade_div{
+  width:100%;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  color:#000;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  background: #222; /* Old browsers */
+  color: green;
+  -webkit-animation: all 1s linear;
+}
+
+.fade_div p{
+  color:#000;
+}
+
+.artist_edit_form{
+  position:absolute;
+  top:0px;
+  left:521px; 
+  width:230px; 
+  height: 290px;
+  padding:10px 15px 0 20px; 
+  background-color: rgba(2, 2, 2, 0.6);
+  border-right:2px solid #000;
+  border-left:2px solid #000;
+}
+
+.artist_upload_avatar{
+  position:absolute;
+  top:0px;
+  left:790px; 
+  width:230px; 
+  height: 290px;
+  padding:10px 16px 0 20px; 
+  background-color: rgba(2, 2, 2, 0.6);
+  border-right:2px solid #000;
+  border-left:2px solid #000;
+}
+

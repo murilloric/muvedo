@@ -119,7 +119,7 @@ class JoinHandler(BaseHandler):
     obj = json.loads(self.request.body)
     name = obj['name']
     user_name = name.replace(' ', '-').lower()
-    email = obj['email']
+    email = obj['email'].lower()
     member_type = obj['member_type']
     password = obj['password']
 

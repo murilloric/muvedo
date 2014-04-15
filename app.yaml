@@ -9,8 +9,11 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /app
-  static_dir: app/
+- url: /static
+  static_dir: static
+
+- url: /admin
+  static_dir: admin
 
 - url: .*
   script: main.app
@@ -18,3 +21,6 @@ handlers:
 libraries:
 - name: webapp2
   version: "latest"
+- name: jinja2
+  version: "latest"
+

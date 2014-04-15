@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" ng-app="muvedoAdmin">
+<head>
+  <meta charset="utf-8">
+  <title>muvedo - art. revolution. lifestyle.</title>
+  
+  <link rel="icon" 
+      type="image/jpg" 
+      href="http://profile.ak.fbcdn.net/hprofile-ak-snc7/373031_288621797817187_291842402_q.jpg">
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/form.css"/>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+
+</head>
+<body>
+<div class="main_content">
+
+  <div class="welcome_message"><h1>MUVEDO</h1><p>Art. Revolution. Lifestyle.</div>
+</div>
+
+<div  ng-view>
+
+</div>
+
+<div style="height:45px; padding-top:5px;" >
+  <div style="width:960px; margin:auto; text-align:right; color:white;">
+    <ul class="nav nav-pills pull-left" style="padding-top:20px;">
+      <li>all rights reserved muvedo since 2007</li>
+    </ul>
+<!--     <ul class="nav nav-pills pull-right">
+    <li><a id="profile_trigger_a" href="/app/index.html#/events"><h5><i class="i icon-calendar" style="margin-top:2px;"></i> Events</h5></a></li>
+    <li><a id="profile_trigger_a" href="/app/index.html#/muvedotv"><h5><i class="icon-facetime-video" style="margin-top:2px;"></i> Videos</h5></a></li>
+    <li><a id="profile_trigger_a" href="/app/index.html#/feed"><h5><i class="icon-list-alt" style="margin-top:2px;"></i> Feed</h5></a></li>
+    <li><a id="profile_trigger_a" href="http://muvedo.tumblr.com/" target="_blank"><h5><i class="icon-book" style="margin-top:2px;"></i> Blog</h5></a></li>
+    <li><a id="profile_trigger_a" href="{{profile_url}}"><h5><i class="icon-user" style="margin-top:2px;"></i> My Page</h5></a></li>
+    <li><a id="access_trigger_a" href=""><h5><i class="icon-lock" style="margin-top:2px;"></i> {{access_trigger}}</h5></a></li>
+   </ul> -->
+  </div>
+</div>
+
+
+
+
+    
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+ 
+ <!--  // <script src="lib/soundcloud/js/sc-player.js"></script>
+  // <script src="https://w.soundcloud.com/player/api.js"></script> -->
+
+  <script src="lib/bootstrap-ui/ui-bootstrap-tpls-0.1.0-SNAPSHOT.min.js"></script>
+  <script src="lib/angular_ui/js/angular-ui.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+ 
+
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5084063-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
