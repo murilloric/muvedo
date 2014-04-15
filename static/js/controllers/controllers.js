@@ -46,9 +46,9 @@ function homeCtrl($scope, $http, $routeParams, $location, $timeout) {
           if (message === false){
             $scope.login_message = 'Sorry Email or Password do not match'
           }else{
-            alert('yea!!! login')
+            
             // $location.path('/'+ message.path + '/' + message.username)
-            ///window.location = host + '/accesscontrol/redirectuser' 
+            window.location = host + '/artist/'+message.username 
             //$scope.check_for_user();
           }
         })
