@@ -28,7 +28,13 @@
     <script src="/static/theme/theme_js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->        
+        <![endif]-->     
+
+        <style type="text/css">
+       [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+       display: none !important;
+       }
+    </style>
     </head>
     <body class="boxed" ng-controller="artistProfileCtrl">
     <!--<div id="loader-overlay"></div>--> 
@@ -36,28 +42,29 @@
         <div id="top-bar"></div>
         <div id="profile-wrap" class="text-center">
             <div class="porfile-img">
-                <img src="/static/theme/images/author_img.jpg" alt="">    
+                <img id="avatar_div" src="" alt="">    
                 <div class="profile-name">
-                    <h2><a href="" ng-click="edit_test(true)" class="fa fa-edit" ng-if="edit_mode"></a> I'm {{artist_name}}<span>front end designer & Developer</span></h2>
-                    <span ng-if="edit_name"> 
-                      <input type="text">
-                      <button ng-click="edit_test(false)">close</button>
-                    </span>
+                    <h2 ng-cloak><a href="" ng-click="edit_test(true)"></a> I'm {{artist_data.name}}<span>{{artist_data.category}}</span></h2>
                 </div>
                 
             </div>
         </div>
   </header>
+
+  
+
     <div id="main-wrapper">
+
       <div id="nav-bar"></div>
       <div id="cotent-wrap">
           <div class="container-fluid">
+
                 <div class="row">
                       <div class="col-md-12">
                             <div class="liquid-slider" id="slider-4">
                               
                                 <!-- Profile Page -->
-                                <div>
+                                <div style="height:800px;">
                                     <h2 class="title visible-xs hidden-xs">Profile</h2>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -66,22 +73,61 @@
                                                 <i class="fa fa-user"></i>
                                                 </div>
                                                 <div class="head-text">
-                                                    <h1><a href="" class="fa fa-edit" ng-if="edit_mode"></a> About Me</h1>
-                                                    <h4>I'm John Doe, a Web Designer living and working in Texas, and this is my space on the interwebs. 
-                                                    I love to design clean and functional websites for my clients. </h4>
+                                                    <h1><a href="" class="fa fa-edit" ng-if="edit_mode" ng-click="show_edit_form(true)"></a> About Me</h1>
+                                                    <h4 ng-cloak>{{artist_data.bio}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                               
+                                  <!--edit profile-->
+                                  <div ng-if="edit_mode" ng-cloak>
+                                    <div ng-if="edit_form">
+                                  <h2>Edit your profile</h2>
+                                  <h3>{{form_message}}</h3>
+                                  <form role="form">
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="Your Name" ng-model="artist_data.name">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Artist Type</label>
+                                    <input type="text" class="form-control" placeholder="Painter & photographer" ng-model="artist_data.category">
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label>About You</label>
+                                      <textarea ng-model="artist_data.bio" class="form-control"> </textarea>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="exampleInputFile">Profile Image</label>
+                                    <input type="file" ng-model-instant id="avatarFile"  onchange="angular.element(this).scope().setFiles(this)" >
+                                    <p class="help-block">jpg or png</p>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label>Tintup <span class="text-info">Visit tintup.com to get your feed.  Copy and paste code here.  The width should be 100% height set at 800px</span></label>
+                                      <textarea ng-model="artist_data.tintup_feed" class="form-control"> </textarea>
+                                  </div>
+
+                                  <button type="submit" class="btn btn-default" ng-click="save_your_socialfeed()">Submit</button>
+
+                                  <button ng-click="show_edit_form(false)" class="btn">Close</button>
+                                </form>
+                              </div>
+                            </div>
+
+
+
+
+                                  <!--edit profile end-->
+                
                                 
                                     <div class="row">
                                       <div class="col-md-12 divider-1">&nbsp;</div>
                                     </div>
 
-                                      <section id="grid" class="grid clearfix">
-                           <script async src="https://d36hc0p18k1aoc.cloudfront.net/public/js/modules/tintembed.js"></script><div class="tintup" data-id="muvedo" data-columns="3"  style="height:800px;width:100%;"><a href="http://www.tintup.com/blog/the-best-youtube-widget" style="width:118px;height:31px;background-image:url(//d33w9bm0n1egwm.cloudfront.net/assets/logos/poweredbytintsmall.png);position:absolute;bottom:10px;right: 20px;text-indent: -9999px;z-index:9;">youtube on website</a></div>
-                       </section>
+                                    <div ng-bind-html="to_trusted(artist_data.tintup_feed)"></div>
                                  
                                 </div>
                                 <!-- Profile Page End -->

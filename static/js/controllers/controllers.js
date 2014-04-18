@@ -58,7 +58,7 @@ function homeCtrl($scope, $http, $routeParams, $location, $timeout) {
 
   $scope.join_form = function(){
     if(!$scope.join_data.name){
-      $scope.join_message = 'user name is required'
+      $scope.join_message = 'artist name is required'
       return
     }else if(!$scope.join_data.email){
       $scope.join_message = 'email is required'
@@ -72,17 +72,17 @@ function homeCtrl($scope, $http, $routeParams, $location, $timeout) {
         console.log(data);
         var message = data.message;
         if(message === true){
-          alert('yea created')
+          $scope.join_message = 'Your profile was created. Please login.'
             //$location.path('/home/' + "Thanks for joining Muvedo. Please Login!")
           }else{
             console.log(message[0])
             if (message[0] === 'name'){
-              $scope.join_message = 'Ohh shit! This Username is taken.'
+              $scope.join_message = 'Ohh darn! This artist name is taken.'
               return
             }
 
             if (message[0] === 'auth_id'){
-              $scope.join_message = 'Ohh shit! This Email is Taken.'
+              $scope.join_message = 'Ohh  darn! This Email is Taken.'
             }
   
           }
