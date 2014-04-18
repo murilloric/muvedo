@@ -95,7 +95,7 @@ function artistProfileCtrl($scope, $location, $timeout,  $routeParams, $http, $s
           $scope.artist_data.tintup_feed
         }
         if (data.message.avatar === 'none'){
-          $('#avatar_div').attr('src', '/static/theme/images/author_img.jpg')
+          $('#avatar_div').attr('src', '/static/img/muvedo-logo.jpg')
         }else{
           $('#avatar_div').attr('src', host + data.message.avatar)
         }
